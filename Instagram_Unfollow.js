@@ -136,6 +136,8 @@ async function unfollow(unfollow_list) {
             if (unfollow_list[i][2])
                 continue;
 
+	        var celeb = await isCeleb(unfollow_list[i][1]);
+
             if (!celeb) {
                 data = await webReq("https://www.instagram.com/web/friendships/"+unfollow_list[i][1]+"/unfollow/", true);
                 
